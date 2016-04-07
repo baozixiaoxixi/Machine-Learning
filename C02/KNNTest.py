@@ -25,7 +25,8 @@ def classify0(inX, dataSet, labels, k):     # k近邻算法具体实现，inX为
         voteIlabel = labels[sortedDistIndicies[i]]
         classCount[voteIlabel] = classCount.get(voteIlabel,0) + 1   #字典中统计数目
     print classCount   #----->{'A': 2, 'B': 1}
-    sortedClassCount = sorted(classCount.iteritems(),key=operator.itemgetter(1),reverse=True)   # Python内置的排序函数sorted可以对list或者iterator进行排序,
+    sortedClassCount = sorted(classCount.iteritems(),key=operator.itemgetter(1),reverse=True)   # iteritems()为字典的迭代器
+                                                                                                # Python内置的排序函数sorted可以对list或者iterator进行排序,
                                                                                                 # itemgetter函数用于获取对象的哪些维的数据
                                                                                                 # reverse是一个bool变量，默认为false（升序排列），定义为True时将按降序排列
     print sortedClassCount  # [('A', 2), ('B', 1)]
