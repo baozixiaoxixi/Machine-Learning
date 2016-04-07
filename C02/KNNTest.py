@@ -35,4 +35,4 @@ def classify0(inX, dataSet, labels, k):     # k近邻算法具体实现，inX为
 
 group,labels = createDataSet()
 
-print classify0([1,1],group,labels,3)
+print classify0([0,0],group,labels,3)
