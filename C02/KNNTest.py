@@ -19,17 +19,16 @@ def classify0(inX, dataSet, labels, k):     # k近邻算法具体实现，inX为
     sqDistances = sqDiffMat.sum(axis=1)         # 当加入axis=1以后就是将一个矩阵的每一行向量相加
     distances = sqDistances**0.5        #取得距离
     sortedDistIndicies = distances.argsort()    #注意这个排序，是对距离数组的角标进行排序，从小到大
-    print sortedDistIndicies
     classCount = {}     # 字典
     for i in range(k):
         voteIlabel = labels[sortedDistIndicies[i]]
         classCount[voteIlabel] = classCount.get(voteIlabel,0) + 1   #字典中统计数目
-    print classCount   #----->{'A': 2, 'B': 1}
+   # print classCount   #----->{'A': 2, 'B': 1}
     sortedClassCount = sorted(classCount.iteritems(),key=operator.itemgetter(1),reverse=True)   # iteritems()为字典的迭代器
                                                                                                 # Python内置的排序函数sorted可以对list或者iterator进行排序,
                                                                                                 # itemgetter函数用于获取对象的哪些维的数据
                                                                                                 # reverse是一个bool变量，默认为false（升序排列），定义为True时将按降序排列
-    print sortedClassCount  # [('A', 2), ('B', 1)]
+    #print sortedClassCount  # [('A', 2), ('B', 1)]
     return sortedClassCount[0][0]
 
 
