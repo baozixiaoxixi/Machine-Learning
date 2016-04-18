@@ -24,5 +24,5 @@ print myDat
 # print trees.chooseBestFeatureToSplit(myDat)
 
 # print trees.createTree(myDat, labels)
-myTree = treePlotter.retrieveTree(0) #这是生成的决策树
-print trees.classify(myTree,labels,[1,1])
+myTree = treePlotter.retrieveTree(0)  # 这是生成的决策树
+print trees.classify(myTree, labels, [1, 1])

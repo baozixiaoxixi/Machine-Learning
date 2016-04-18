@@ -89,15 +89,16 @@ def createTree(dataSet, labels):
         myTree[bestFeatLabel][value] = createTree(splitDataSet(dataSet, bestFeat, value), subLabels)  # 循环
     return myTree
 
+
 # 利用决策树执行分类--->这块才是分类的一部分内容
-def classify(inputTree,featLabels,testVec):
+def classify(inputTree, featLabels, testVec):
     firstStr = inputTree.keys()[0]
     secondDict = inputTree[firstStr]
     featIndex = featLabels.index(firstStr)
     for key in secondDict.keys():
         if testVec[featIndex] == key:
             if type(secondDict[key]).__name__ == 'dict':
-                classLabel = classify(secondDict[key],featLabels,testVec)
+                classLabel = classify(secondDict[key], featLabels, testVec)
             else:
                 classLabel = secondDict[key]
     return classLabel
