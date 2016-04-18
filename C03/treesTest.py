@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 
 import trees
+import treePlotter
 
 
 def createDataSet():
@@ -22,4 +23,6 @@ print myDat
 # print trees.splitDataSet(myDat, 0, 1)  # 循环dataSet对象，对于每一个循环值，索引为0的值看是否和1相等，如果相等，返回后边的值
 # print trees.chooseBestFeatureToSplit(myDat)
 
-print trees.createTree(myDat, labels)
+# print trees.createTree(myDat, labels)
+myTree = treePlotter.retrieveTree(0) #这是生成的决策树
+print trees.classify(myTree,labels,[1,1])
